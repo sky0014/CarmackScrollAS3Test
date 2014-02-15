@@ -8,6 +8,7 @@ package
 	import flash.display.StageScaleMode;
 	import flash.events.Event;
 	import flash.geom.Matrix;
+	import flash.geom.Point;
 	import flash.geom.Rectangle;
 	import flash.text.TextField;
 	import flash.text.TextFieldAutoSize;
@@ -45,18 +46,11 @@ package
 		
 		private function onEnterFrame(event:Event):void
 		{
-			//从内存中取出指定宽度区域
-			var mArea:Vector.<uint> = memory.getVector(new Rectangle(0,0,pixelPerSecond,720));
-//			var mArea:ByteArray = memory.getPixels(new Rectangle(0,0,pixelPerSecond,720));
-//			mArea.position = 0;
-			memory.scroll(-pixelPerSecond,0);
-			
-			//处理当前显示bmpdata
 			show.lock();
-			show.scroll(-pixelPerSecond,0);
-			show.setVector(new Rectangle(1280-pixelPerSecond,0,pixelPerSecond,720),mArea);
-//			show.setPixels(new Rectangle(1280-pixelPerSecond,0,pixelPerSecond,720),mArea);
+			show.scroll(-pixelPerSecond,0);			
+			show.copyPixels(memory,new Rectangle(0,0,pixelPerSecond,720),new Point(1280-pixelPerSecond,0));
 			show.unlock();
+			memory.scroll(-pixelPerSecond,0);
 		}
 		
 		private function makeTF():void
