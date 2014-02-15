@@ -13,7 +13,7 @@ package
 	import flash.text.TextFormat;
 	import flash.utils.setInterval;
 	
-	[SWF(width="1280",height="720",frameRate="30")]
+	[SWF(width="1280",height="720",frameRate="60")]
 	public class NormalScroll extends Sprite
 	{
 		private var tfY:int;
@@ -29,7 +29,7 @@ package
 			
 			tfPool = new Vector.<TextField>();
 			
-			setInterval(makeTF,50);
+			setInterval(makeTF,20);
 			addEventListener(Event.ENTER_FRAME,onEnterFrame);
 		}
 		
@@ -52,7 +52,7 @@ package
 			var tf:TextField = new TextField();
 			tf.autoSize = TextFieldAutoSize.LEFT;
 			tf.defaultTextFormat = new TextFormat("黑体",25,0xff0000);			
-			tf.text = "111111";
+			tf.text = "1111111111111111";
 			tf.x = 1280;
 			tf.y = tfY;
 			tfY += 40;

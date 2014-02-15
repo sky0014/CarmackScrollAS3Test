@@ -16,7 +16,7 @@ package
 	import flash.utils.ByteArray;
 	import flash.utils.setInterval;
 	
-	[SWF(width="1280",height="720",frameRate="30")]
+	[SWF(width="1280",height="720",frameRate="60")]
 	public class CarmackScrollAS3Test extends Sprite
 	{
 		
@@ -40,7 +40,7 @@ package
 			frame = new Bitmap(show);
 			addChild(frame);
 			
-			setInterval(makeTF,50);
+			setInterval(makeTF,20);
 			addEventListener(Event.ENTER_FRAME,onEnterFrame);
 		}
 		
@@ -58,7 +58,7 @@ package
 			var tf:TextField = new TextField();
 			tf.autoSize = TextFieldAutoSize.LEFT;
 			tf.defaultTextFormat = new TextFormat("黑体",25,0xff0000);			
-			tf.text = "111111";
+			tf.text = "1111111111111111";
 			tf.x = 1280;
 			tf.y = tfY;
 			tfY += 40;
